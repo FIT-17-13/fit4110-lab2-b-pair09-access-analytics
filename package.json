@@ -7,7 +7,7 @@
     "check": "node --version && npm --version",
     "install:cli": "npm install -g @stoplight/spectral-cli@6.11.1 @stoplight/prism-cli@5.14.2",
     "lint": "spectral lint openapi.yaml --ruleset campus-spectral.yaml",
-    "lint:report": "mkdir -p evidence/buoi-02 && spectral lint openapi.yaml --ruleset campus-spectral.yaml --format text > evidence/buoi-02/spectral-report.txt",
+    "lint:report": "spectral lint openapi.yaml --ruleset campus-spectral.yaml --format text > evidence/buoi-02/spectral-report.txt",
     "mock": "prism mock openapi.yaml --port 4010",
     "test:mock:curl": "bash scripts/test_mock_with_curl.sh"
   },

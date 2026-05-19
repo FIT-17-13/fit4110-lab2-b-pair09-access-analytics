@@ -266,27 +266,43 @@ components:
           type: string
           format: date-time
 
-    AccessEvent:
+AccessEvent:
       type: object
       additionalProperties: false
-      required: [eventType, eventId, gateId, cardId, decision, timestamp]
+      required: [eventType, eventId, gateId, cardId, direction, decision, timestamp]
       properties:
         eventType:
           type: string
           const: ACCESS_CHECK
+          description: Loại event.
+          example: ACCESS_CHECK
         eventId:
           type: string
           format: uuid
+          description: UUID của event để chống lặp.
         gateId:
           type: string
+          pattern: '^GATE-[0-9]{2}$'
+          description: Mã cổng.
+          example: GATE-01
         cardId:
           type: string
+          description: Mã thẻ RFID gửi thô theo thỏa thuận đàm phán.
+          example: RFID-2026-001
+        direction:
+          type: string
+          enum: [in, out]
+          description: Hướng di chuyển (in hoặc out).
+          example: in
         decision:
           type: string
           enum: [ALLOW, DENY]
+          description: Quyết định truy cập.
+          example: ALLOW
         timestamp:
           type: string
           format: date-time
+          description: Thời điểm kiểm tra.
 
     EventAccepted:
       type: object

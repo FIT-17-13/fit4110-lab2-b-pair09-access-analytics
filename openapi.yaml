@@ -117,6 +117,7 @@ paths:
                   eventId: 0196fb3d-4ad7-7d1e-9f49-5d5148d2babd
                   gateId: GATE-01
                   cardId: RFID-2026-001
+                  direction: in
                   decision: ALLOW
                   timestamp: '2026-05-19T10:01:00Z'
       responses:
@@ -266,7 +267,7 @@ components:
           type: string
           format: date-time
 
-AccessEvent:
+    AccessEvent:
       type: object
       additionalProperties: false
       required: [eventType, eventId, gateId, cardId, direction, decision, timestamp]
